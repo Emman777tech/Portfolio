@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Autistic and Futurist Golang Developer - Emmanuel</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #000;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    #info {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      z-index: 1;
+    }
+
+    #projects {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="info">
+    <h1>Autistic and Futurist Golang Developer - Emmanuel</h1>
+    <p>
+      Hi there, I'm an autistic and futurist Golang developer with over 7 years of commercial experience and 5 years of experience with God, knowledge of microservices, REST/gRPC, experience with high-load systems, and extensive infrastructure automation experience (Ansible, Terraform, Pulumi). I'm fluent in English and have testing experience.
+    </p>
+    <p>
+      I'm passionate about creating innovative solutions and exploring new technologies. My goal is to make a positive impact on the world through my work and to help others learn and grow.
+    </p>
+  </div>
+
+  <div id="projects">
+    <h2>Projects</h2>
+    <ul>
+      <li>Project 1: Description of the project, technologies used, and link to the project (if available).</li>
+      <li>Project 2: Description of the project, technologies used, and link to the project (if available).</li>
+      <!-- Add more project entries as needed -->
+      <li>
+        <h3>Golang Web Application</h3>
+        <p>
+          Description: A web application built using Golang and Go frameworks (e.g., Gin, Echo, Beego). The application demonstrates the use of RESTful API design, database integration, and server-side rendering.
+        </p>
+        <p>
+          Technologies: Golang, Go frameworks (Gin, Echo, Beego), HTML/CSS, JavaScript, SQL/NoSQL databases.
+        </p>
+        <p>
+          Link: (Provide a link to the project's repository or live demo if available).
+        </p>
+      </li>
+    </ul>
+  </div>
+
+  <canvas id="webgl"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
+  <script>
+    // Set up the scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Add lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    scene.add(ambientLight);
+
+    const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+    pointLight.position.set(0, 20, 40);
+    scene.add(pointLight);
+
+    // Create the 3D objects
+    const geometry = new THREE.BoxGeometry(10, 10, 10);
+    const material = new THREE.MeshStandardMaterial({ color: 0xff0000 });
+    const cube = new THREE.Mesh(geometry, material);
+    scene.add(cube);
+
+    const sphereGeometry = new THREE.SphereGeometry(5, 32, 32);
+    const sphereMaterial = new THREE.MeshStandardMaterial({ color: 0x00ff00 });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    sphere.position.set(20, 0, 0);
+    scene.add(sphere);
+
+    // Animate the scene
+    function animate() {
+      requestAnimationFrame(animate);
+      cube.rotation.x += 0.01;
+      cube.rotation.y += 0.01;
+      sphere.rotation.x += 0.01;
+      sphere.rotation.y += 0.01;
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  </script>
+</body>
+</html>
